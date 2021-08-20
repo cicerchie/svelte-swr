@@ -41,7 +41,7 @@ TBD
 
 1.  Use it like this:
 
-    ```html
+    ```svelte
     <script>
       import { newSWR } from "@cicerchie/svelte-swr";
 
