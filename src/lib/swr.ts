@@ -42,24 +42,20 @@ const defaultSWRParams = {
 const swrMachine: FSMMachineConfig = {
   initial: "init",
   on: {
-    revalidate: {
-      target: "revalidating",
-      action: (ctx, event) => {
-        if (cache.has(event.data.key)) {
-          return { ...ctx, isLoading: false, data: cache.get(event.data.key) };
-        } else if (event.data.options.initialData) {
-          const data = event.data.options.initialData();
-          if (data) {
-            return { ...ctx, isLoading: false, data };
-          }
-        }
-      },
-    },
+    revalidate: "revalidating",
   },
   states: {
     init: {},
     revalidating: {
-      entry: (ctx) => {
+      entry: (ctx, event) => {
+        if (cache.has(event.data.key)) {
+          ctx = { ...ctx, isLoading: false, data: cache.get(event.data.key) };
+        } else if (event.data.options.initialData) {
+          const data = event.data.options.initialData();
+          if (data) {
+            ctx = { ...ctx, isLoading: false, data };
+          }
+        }
         increaseFetching();
         return { ...ctx, isFetching: true };
       },
@@ -67,9 +63,7 @@ const swrMachine: FSMMachineConfig = {
         revalidate: null,
       },
       invoke: {
-        src: (_, event) => {
-          return event.data.fn();
-        },
+        src: (_, event) => event.data.fn(),
         onDone: {
           target: "success",
           action: (ctx, event) => {
