@@ -68,4 +68,4 @@ TBD
 
 ## Changelog
 
-Is automagically updated with each release and [you can read it here](https://github.com/cicerchie/ui/blob/master/CHANGELOG.md).
+Is automagically updated with each release and [you can read it here](https://github.com/cicerchie/svelte-swr/blob/master/CHANGELOG.md).
