@@ -19,7 +19,7 @@ const config = {
 
     // For GitHub Pages
     paths: {
-      base: "/ui",
+      base: "/svelte-swr",
     },
 
     // For GitHub Pages
