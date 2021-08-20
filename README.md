@@ -35,37 +35,62 @@ Use them at your own risk and check that them do what you want them to do.
 
 TBD
 
-## Getting started
+## Installation
 
-1.  `npm install @cicerchie/svelte-swr`
+```
+npm install @cicerchie/svelte-swr
+```
 
-1.  Use it like this:
+## Usage
 
-    ```svelte
-    <script>
-      import { newSWR } from "@cicerchie/svelte-swr";
+```svelte
+<script>
+  import { newSWR } from "@cicerchie/svelte-swr";
 
-      const players = newSWR<PlayerList>();
+  const players = newSWR<PlayerList>();
 
-      $: players.update({
-        key: `players?page=${page}&filter=${JSON.stringify(filter)}`,
-        fn: () => playersService.list({ page, filter }),
-      });
-    </script>
+  $: players.update({
+    key: `players?page=${page}&filter=${JSON.stringify(filter)}`,
+    fn: () => playersService.list({ page, filter }),
+  });
+</script>
 
-    {#if $players.isLoading}
-      Loading...
-    {:else if $players.error}
-      {$players.error}
-    {:else}
-      {#each $players.data.players as player (player.id)}
-        ID: {player.id}
-      {:else}
-        No players yet
-      {/each}
-    {/if}
-    ```
+{#if $players.isLoading}
+  Loading...
+{:else if $players.error}
+  {$players.error}
+{:else}
+  {#each $players.data.players as player (player.id)}
+    ID: {player.id}
+  {:else}
+    No players yet
+  {/each}
+{/if}
+```
 
 ## Changelog
 
 Is automagically updated with each release and [you can read it here](https://github.com/cicerchie/svelte-swr/blob/master/CHANGELOG.md).
+
+## Features
+
+- [x] Transport and protocol agnostic
+- [x] Jamstack oriented
+- [x] Fast, lightweight and reusable data fetching (fast page navigation, fast UI)
+- [x] Built-in cache
+- [x] Cache data and retrieve it when needed
+- [x] Initial immediate data (offline or already cached)
+- [ ] Typescript ready (still incomplete and so many `any`!)
+- [ ] Docs (HELP!)
+- [ ] Tests (HELP!)
+- [ ] Pagination (done, docs needed)
+- [ ] Requests deduplication
+- [ ] Enable and disable it with a prop
+- [ ] Polling on interval
+- [ ] Revalidation on window focus
+- [ ] Revalidation on network recovery
+- [ ] Local mutation (Optimistic UI)
+- [ ] Smart error retry
+- [ ] Scroll position recovery
+- [ ] Persist and restore from LocalStorage/IndexedDB
+- [ ] Clear cache when you need to invalidate all data or specific keys
