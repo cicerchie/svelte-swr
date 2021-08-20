@@ -1,6 +1,6 @@
 {
   "name": "@cicerchie/svelte-swr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A stale-while-revalidate data fetching library for Svelte.",
   "author": "https://github.com/cicerchia",
   "license": "MIT",

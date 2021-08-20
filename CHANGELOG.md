@@ -1,3 +1,10 @@
+## [0.0.2](https://github.com/cicerchie/svelte-swr/compare/v0.0.1...v0.0.2) (2021-08-20)
+
+
+### Bug Fixes
+
+* add initialData option ([0670a0d](https://github.com/cicerchie/svelte-swr/commit/0670a0d59acedc3f8a4ba9efa1f5ef8aa4ee71b2))
+
 ## [0.0.1](https://github.com/cicerchie/svelte-swr/compare/v0.0.0...v0.0.1) (2021-08-20)
 
 
