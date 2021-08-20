@@ -47,14 +47,12 @@ TBD
 
       const players = newSWR<PlayerList>();
 
-      $: playersOptions = {
+      $: players.update({
         key: `players?page=${page}&filter=${JSON.stringify(filter)}`,
-        fn: () => playersService.list({ page, filter })
-      };
-
-      $: players.update(playersOptions);
+        fn: () => playersService.list({ page, filter }),
+      });
     </script>
-    
+
     {#if $players.isLoading}
       Loading...
     {:else if $players.error}
