@@ -1,3 +1,10 @@
+## [0.0.3](https://github.com/cicerchie/svelte-swr/compare/v0.0.2...v0.0.3) (2021-08-20)
+
+
+### Bug Fixes
+
+* simplify/change "revalidating" state removing action using entry ([c94e838](https://github.com/cicerchie/svelte-swr/commit/c94e838b66aed5c107f182217c77e1821f33b81f))
+
 ## [0.0.2](https://github.com/cicerchie/svelte-swr/compare/v0.0.1...v0.0.2) (2021-08-20)
 
 
