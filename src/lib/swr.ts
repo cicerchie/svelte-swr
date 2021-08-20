@@ -56,14 +56,16 @@ const swrMachine: FSMMachineConfig = {
             ctx = { ...ctx, isLoading: false, data };
           }
         }
-        increaseFetching();
         return { ...ctx, isFetching: true };
       },
       on: {
         revalidate: null,
       },
       invoke: {
-        src: (_, event) => event.data.fn(),
+        src: (_, event) => {
+          increaseFetching();
+          return event.data.fn();
+        },
         onDone: {
           target: "success",
           action: (ctx, event) => {
