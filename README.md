@@ -31,10 +31,6 @@ Use them at your own risk and check that them do what you want them to do.
 
 ---
 
-## Demo
-
-TBD
-
 ## Installation
 
 ```
@@ -81,8 +77,6 @@ Is automagically updated with each release and [you can read it here](https://gi
 - [x] Cache data and retrieve it when needed
 - [x] Initial immediate data (offline or already cached)
 - [ ] Typescript ready (still incomplete and so many `any`!)
-- [ ] Docs (HELP!)
-- [ ] Tests (HELP!)
 - [ ] Pagination (done, docs needed)
 - [ ] Requests deduplication
 - [ ] Enable and disable it with a prop
@@ -94,3 +88,9 @@ Is automagically updated with each release and [you can read it here](https://gi
 - [ ] Scroll position recovery
 - [ ] Persist and restore from LocalStorage/IndexedDB
 - [ ] Clear cache when you need to invalidate all data or specific keys
+
+## TODO
+
+- [ ] Docs (HELP!)
+- [ ] Tests (HELP!)
+- [ ] Demo site (using `routes` dir: it's a SvelteKit app!)
