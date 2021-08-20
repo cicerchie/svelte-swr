@@ -5,16 +5,16 @@ import { writable } from "svelte/store";
 import { cache } from "./cache";
 import { decreaseFetching, increaseFetching } from "./indicator";
 
-// interface SWROptions<T> {
-//   initialData?: () => T;
-//   revalidateOnFocus?: boolean;
-//   revalidateOnReconnect?: boolean;
-// }
+interface SWROptions<T> {
+  initialData?: () => T;
+  // revalidateOnFocus?: boolean;
+  // revalidateOnReconnect?: boolean;
+}
 
 interface SWRParams<T> {
   key: string;
   fn: () => Promise<T>;
-  // options?: SWROptions<T>;
+  options?: SWROptions<T>;
 }
 
 interface SWRStore<T> {
@@ -31,13 +31,13 @@ const defaultSWRStore = {
   isFetching: false,
 };
 
-// const defaultSWRParams = {
-//   options: {
-//     initialData: undefined,
-//     revalidateOnFocus: true,
-//     revalidateOnReconnect: true,
-//   },
-// };
+const defaultSWRParams = {
+  options: {
+    initialData: undefined,
+    // revalidateOnFocus: true,
+    // revalidateOnReconnect: true,
+  },
+};
 
 const swrMachine: FSMMachineConfig = {
   initial: "init",
@@ -47,6 +47,11 @@ const swrMachine: FSMMachineConfig = {
       action: (ctx, event) => {
         if (cache.has(event.data.key)) {
           return { ...ctx, isLoading: false, data: cache.get(event.data.key) };
+        } else if (event.data.options.initialData) {
+          const data = event.data.options.initialData();
+          if (data) {
+            return { ...ctx, isLoading: false, data };
+          }
         }
       },
     },
@@ -105,7 +110,7 @@ export function newSWR<T>() {
   });
 
   function update(params: SWRParams<T>) {
-    // params = { ...defaultSWRParams, ...params };
+    params = { ...defaultSWRParams, ...params };
     fsm.send("revalidate", params);
   }
 
