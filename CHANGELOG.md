@@ -1,3 +1,10 @@
+## [0.0.7](https://github.com/cicerchie/svelte-swr/compare/v0.0.6...v0.0.7) (2021-08-21)
+
+
+### Bug Fixes
+
+* rename newSWR to useSWR ([672bf85](https://github.com/cicerchie/svelte-swr/commit/672bf85ac145364b6d5d1280eed791dba8191a17))
+
 ## [0.0.6](https://github.com/cicerchie/svelte-swr/compare/v0.0.5...v0.0.6) (2021-08-21)
 
 
