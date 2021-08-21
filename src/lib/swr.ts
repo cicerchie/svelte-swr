@@ -101,7 +101,7 @@ const swrMachine: FSMMachineConfig = {
   },
 };
 
-export function newSWR<T>() {
+export function useSWR<T>() {
   // const store = writable<SWRStore<T>>({ ...defaultSWRStore }, () => {
   //   fsm.setEnabled(true);
   //   return () => {

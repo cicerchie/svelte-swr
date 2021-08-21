@@ -41,9 +41,9 @@ npm install @cicerchie/svelte-swr
 
 ```svelte
 <script>
-  import { newSWR } from "@cicerchie/svelte-swr";
+  import { useSWR } from "@cicerchie/svelte-swr";
 
-  const players = newSWR<PlayerList>();
+  const players = useSWR<PlayerList>();
 
   $: players.update({
     key: `players?page=${page}&filter=${JSON.stringify(filter)}`,
