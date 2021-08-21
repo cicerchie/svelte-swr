@@ -1,3 +1,10 @@
+## [0.0.6](https://github.com/cicerchie/svelte-swr/compare/v0.0.5...v0.0.6) (2021-08-21)
+
+
+### Bug Fixes
+
+* merge default options too ([8c9dfdc](https://github.com/cicerchie/svelte-swr/commit/8c9dfdcb51459bbb977727839dcedd0338fc8467))
+
 ## [0.0.5](https://github.com/cicerchie/svelte-swr/compare/v0.0.4...v0.0.5) (2021-08-21)
 
 
