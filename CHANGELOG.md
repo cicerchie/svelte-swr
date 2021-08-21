@@ -1,3 +1,12 @@
+## [0.0.4](https://github.com/cicerchie/svelte-swr/compare/v0.0.3...v0.0.4) (2021-08-21)
+
+
+### Bug Fixes
+
+* add revalidating cond; add enabled option ([5133e15](https://github.com/cicerchie/svelte-swr/commit/5133e15c5f6bacb22c8dd9abb8f2ab7c7d2a48fb))
+* do not start with loading true: check if on revalidating ([bfb36fb](https://github.com/cicerchie/svelte-swr/commit/bfb36fb22630928b4a343ef67c319a238df76842))
+* increase global indicator on invoke ([9a7187c](https://github.com/cicerchie/svelte-swr/commit/9a7187c036e52f8f61ad0cb91c7d3841e7043809))
+
 ## [0.0.3](https://github.com/cicerchie/svelte-swr/compare/v0.0.2...v0.0.3) (2021-08-20)
 
 
