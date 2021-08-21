@@ -117,7 +117,14 @@ export function newSWR<T>() {
   });
 
   function update(params: SWRParams<T>) {
-    params = { ...defaultSWRParams, ...params };
+    params = {
+      ...defaultSWRParams,
+      ...params,
+      options: {
+        ...defaultSWRParams.options,
+        ...params.options,
+      },
+    };
     fsm.send("revalidate", params);
   }
 
