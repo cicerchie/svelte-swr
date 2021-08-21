@@ -6,6 +6,7 @@ import { cache } from "./cache";
 import { decreaseFetching, increaseFetching } from "./indicator";
 
 interface SWROptions<T> {
+  enabled: boolean;
   initialData?: () => T;
   // revalidateOnFocus?: boolean;
   // revalidateOnReconnect?: boolean;
