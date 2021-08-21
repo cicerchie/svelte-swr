@@ -1,3 +1,11 @@
+## [0.0.5](https://github.com/cicerchie/svelte-swr/compare/v0.0.4...v0.0.5) (2021-08-21)
+
+
+### Bug Fixes
+
+* add enabled option type ([a59472d](https://github.com/cicerchie/svelte-swr/commit/a59472dc046874e4f5e06b51f283e21814d36f61))
+* make enabled option optional ([7d3bcc0](https://github.com/cicerchie/svelte-swr/commit/7d3bcc02af07354e13fb97037cbbed5e13d676d5))
+
 ## [0.0.4](https://github.com/cicerchie/svelte-swr/compare/v0.0.3...v0.0.4) (2021-08-21)
 
 
