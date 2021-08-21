@@ -27,7 +27,7 @@ interface SWRStore<T> {
 const defaultSWRStore = {
   data: undefined,
   error: undefined,
-  isLoading: true,
+  isLoading: false,
   isFetching: false,
 };
 
@@ -62,7 +62,11 @@ const swrMachine: FSMMachineConfig = {
             ctx = { ...ctx, isLoading: false, data };
           }
         }
-        return { ...ctx, isFetching: true };
+        return {
+          ...ctx,
+          isLoading: !(ctx.data || ctx.error),
+          isFetching: true,
+        };
       },
       on: {
         revalidate: null,
