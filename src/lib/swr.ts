@@ -33,16 +33,22 @@ const defaultSWRStore = {
 
 const defaultSWRParams = {
   options: {
+    enabled: true,
     initialData: undefined,
     // revalidateOnFocus: true,
     // revalidateOnReconnect: true,
   },
 };
 
+const isEnabled = (_, event) => event.data.options.enabled;
+
 const swrMachine: FSMMachineConfig = {
   initial: "init",
   on: {
-    revalidate: "revalidating",
+    revalidate: {
+      target: "revalidating",
+      cond: isEnabled,
+    },
   },
   states: {
     init: {},
