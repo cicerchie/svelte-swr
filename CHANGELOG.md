@@ -1,3 +1,11 @@
+## [0.0.12](https://github.com/cicerchie/svelte-swr/compare/v0.0.11...v0.0.12) (2021-08-22)
+
+
+### Bug Fixes
+
+* make data & error optional field; use context const in useSWR ([82f0e20](https://github.com/cicerchie/svelte-swr/commit/82f0e20ebe9d11fe97d9f21c54d8703222bc595d))
+* remove useless default option ([7f89188](https://github.com/cicerchie/svelte-swr/commit/7f89188a82ab7b1c0a4890a65fdd4d25d68866e0))
+
 ## [0.0.11](https://github.com/cicerchie/svelte-swr/compare/v0.0.10...v0.0.11) (2021-08-22)
 
 
