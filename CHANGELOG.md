@@ -1,3 +1,10 @@
+## [0.0.9](https://github.com/cicerchie/svelte-swr/compare/v0.0.8...v0.0.9) (2021-08-22)
+
+
+### Bug Fixes
+
+* add Client and methods for Svelte Context; add onError handling in receiveFn() ([ee64b62](https://github.com/cicerchie/svelte-swr/commit/ee64b6230c535fdc318e40de8e9679b5b4ded481))
+
 ## [0.0.8](https://github.com/cicerchie/svelte-swr/compare/v0.0.7...v0.0.8) (2021-08-22)
 
 
