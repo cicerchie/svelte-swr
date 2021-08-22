@@ -19,8 +19,8 @@ interface Params<T> {
 }
 
 interface Context<T> {
-  data: T | undefined;
-  error: Error | undefined;
+  data?: T;
+  error?: Error;
   isLoading: boolean;
   isFetching: boolean;
 }
@@ -30,8 +30,6 @@ interface SWRStore<T> extends Readable<Context<T>> {
 }
 
 const defaultContext = {
-  data: undefined,
-  error: undefined,
   isLoading: false,
   isFetching: false,
 };
@@ -45,11 +43,13 @@ const defaultOptions = {
 export function useSWR<T>(): SWRStore<T> {
   const client = getClient();
 
-  const store = writable<Context<T>>({ ...defaultContext });
+  const context = { ...defaultContext };
+
+  const store = writable<Context<T>>(context);
 
   const fsm = newFSM({
     config: swrMachine,
-    context: { ...defaultContext },
+    context,
     receiveFn: (state, ctx) => {
       store.set({ state, ...ctx });
 
