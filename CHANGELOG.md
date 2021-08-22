@@ -1,3 +1,10 @@
+## [0.0.8](https://github.com/cicerchie/svelte-swr/compare/v0.0.7...v0.0.8) (2021-08-22)
+
+
+### Bug Fixes
+
+* add final type for useSWR; change some types name; add type to isEnabled helper ([631a14d](https://github.com/cicerchie/svelte-swr/commit/631a14d92d2998dfa818cc1218b3f7f6983d5dc4))
+
 ## [0.0.7](https://github.com/cicerchie/svelte-swr/compare/v0.0.6...v0.0.7) (2021-08-21)
 
 
