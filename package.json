@@ -41,11 +41,11 @@
     "postversion": "cp -r package.json .. && cd .. && npm run package"
   },
   "dependencies": {
-    "@cicerchie/fsm": "0.0.1"
+    "@cicerchie/fsm": "0.0.6"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "1.0.0-next.16",
-    "@sveltejs/kit": "1.0.0-next.154",
+    "@sveltejs/adapter-static": "1.0.0-next.17",
+    "@sveltejs/kit": "1.0.0-next.155",
     "@typescript-eslint/eslint-plugin": "4.29.2",
     "@typescript-eslint/parser": "4.29.2",
     "eslint": "7.32.0",
@@ -54,7 +54,7 @@
     "obj-str": "1.1.0",
     "prettier": "2.3.2",
     "prettier-plugin-svelte": "2.3.1",
-    "svelte": "3.42.1",
+    "svelte": "3.42.2",
     "svelte-check": "2.2.4",
     "svelte-preprocess": "4.7.4",
     "svelte2tsx": "0.4.5",
