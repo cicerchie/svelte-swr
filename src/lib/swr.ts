@@ -49,12 +49,6 @@ const defaultSWRParams = {
 export function useSWR<T>(): SWRStore<T> {
   const client = getClient() || newClient({});
 
-  // const store = writable<SWRStore<T>>({ ...defaultSWRStore }, () => {
-  //   fsm.setEnabled(true);
-  //   return () => {
-  //     fsm.destroy();
-  //   };
-  // });
   const store = writable<Context<T>>({ ...defaultSWRStore });
 
   const fsm = newFSM({
