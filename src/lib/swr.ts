@@ -3,6 +3,8 @@ import { newFSM } from "@cicerchie/fsm";
 import { writable } from "svelte/store";
 
 import { swrMachine } from "./machine";
+import { getClient } from "./context";
+import { newClient } from "./client";
 
 interface SWROptions<T> {
   enabled?: boolean;
@@ -45,6 +47,8 @@ const defaultSWRParams = {
 };
 
 export function useSWR<T>(): SWRStore<T> {
+  const client = getClient() || newClient({});
+
   // const store = writable<SWRStore<T>>({ ...defaultSWRStore }, () => {
   //   fsm.setEnabled(true);
   //   return () => {
@@ -56,7 +60,13 @@ export function useSWR<T>(): SWRStore<T> {
   const fsm = newFSM({
     config: swrMachine,
     context: { ...defaultSWRStore },
-    receiveFn: (state, ctx) => store.set({ state, ...ctx }),
+    receiveFn: (state, ctx) => {
+      store.set({ state, ...ctx });
+
+      if (client.options.onError && ctx.error) {
+        client.options.onError(ctx.error);
+      }
+    },
   });
 
   function update(params: SWRParams<T>) {
