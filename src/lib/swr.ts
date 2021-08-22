@@ -1,4 +1,5 @@
 import type { FSMMachineConfig } from "@cicerchie/fsm";
+import type { Readable } from "svelte/store";
 import { newFSM } from "@cicerchie/fsm";
 import { writable } from "svelte/store";
 
@@ -18,11 +19,15 @@ interface SWRParams<T> {
   options?: SWROptions<T>;
 }
 
-interface SWRStore<T> {
+interface Context<T> {
   data: T | undefined;
   error: Error | undefined;
   isLoading: boolean;
   isFetching: boolean;
+}
+
+interface SWRStore<T> extends Readable<Context<T>> {
+  update: (params: SWRParams<T>) => void;
 }
 
 const defaultSWRStore = {
@@ -41,7 +46,7 @@ const defaultSWRParams = {
   },
 };
 
-const isEnabled = (_, event) => event.data.options.enabled;
+const isEnabled = (_, event): boolean => event.data.options.enabled;
 
 const swrMachine: FSMMachineConfig = {
   initial: "init",
@@ -101,14 +106,14 @@ const swrMachine: FSMMachineConfig = {
   },
 };
 
-export function useSWR<T>() {
+export function useSWR<T>(): SWRStore<T> {
   // const store = writable<SWRStore<T>>({ ...defaultSWRStore }, () => {
   //   fsm.setEnabled(true);
   //   return () => {
   //     fsm.destroy();
   //   };
   // });
-  const store = writable<SWRStore<T>>({ ...defaultSWRStore });
+  const store = writable<Context<T>>({ ...defaultSWRStore });
 
   const fsm = newFSM({
     config: swrMachine,
