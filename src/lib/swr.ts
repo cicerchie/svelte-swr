@@ -5,17 +5,17 @@ import { writable } from "svelte/store";
 import { swrMachine } from "./machine";
 import { getClient } from "./context";
 
-interface SWROptions<T> {
+interface Options<T> {
   enabled?: boolean;
   initialData?: () => T;
   // revalidateOnFocus?: boolean;
   // revalidateOnReconnect?: boolean;
 }
 
-interface SWRParams<T> {
+interface Params<T> {
   key: string;
   fn: () => Promise<T>;
-  options?: SWROptions<T>;
+  options?: Options<T>;
 }
 
 interface Context<T> {
@@ -26,17 +26,17 @@ interface Context<T> {
 }
 
 interface SWRStore<T> extends Readable<Context<T>> {
-  update: (params: SWRParams<T>) => void;
+  update: (params: Params<T>) => void;
 }
 
-const defaultSWRStore = {
+const defaultContext = {
   data: undefined,
   error: undefined,
   isLoading: false,
   isFetching: false,
 };
 
-const defaultSWRParams = {
+const defaultOptions = {
   enabled: true,
   // revalidateOnFocus: true,
   // revalidateOnReconnect: true,
@@ -45,11 +45,11 @@ const defaultSWRParams = {
 export function useSWR<T>(): SWRStore<T> {
   const client = getClient();
 
-  const store = writable<Context<T>>({ ...defaultSWRStore });
+  const store = writable<Context<T>>({ ...defaultContext });
 
   const fsm = newFSM({
     config: swrMachine,
-    context: { ...defaultSWRStore },
+    context: { ...defaultContext },
     receiveFn: (state, ctx) => {
       store.set({ state, ...ctx });
 
@@ -59,8 +59,8 @@ export function useSWR<T>(): SWRStore<T> {
     },
   });
 
-  function update(params: SWRParams<T>) {
-    params.options = { ...defaultSWRParams, ...params.options };
+  function update(params: Params<T>) {
+    params.options = { ...defaultOptions, ...params.options };
 
     fsm.send("revalidate", params);
   }
