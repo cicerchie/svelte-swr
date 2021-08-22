@@ -4,7 +4,6 @@ import { writable } from "svelte/store";
 
 import { swrMachine } from "./machine";
 import { getClient } from "./context";
-import { newClient } from "./client";
 
 interface SWROptions<T> {
   enabled?: boolean;
@@ -45,7 +44,7 @@ const defaultSWRParams = {
 };
 
 export function useSWR<T>(): SWRStore<T> {
-  const client = getClient() || newClient({});
+  const client = getClient();
 
   const store = writable<Context<T>>({ ...defaultSWRStore });
 
