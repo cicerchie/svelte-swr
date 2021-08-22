@@ -38,7 +38,6 @@ const defaultSWRStore = {
 
 const defaultSWRParams = {
   enabled: true,
-  initialData: undefined,
   // revalidateOnFocus: true,
   // revalidateOnReconnect: true,
 };
