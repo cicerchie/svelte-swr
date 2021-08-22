@@ -76,6 +76,7 @@ Is automagically updated with each release and [you can read it here](https://gi
 - [x] Built-in cache
 - [x] Cache data and retrieve it when needed
 - [x] Initial immediate data (offline or already cached)
+- [x] Global `onError` custom handler
 - [ ] Typescript ready (still incomplete and so many `any`!)
 - [ ] Pagination (done, docs needed)
 - [ ] Requests deduplication
