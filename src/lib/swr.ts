@@ -38,12 +38,10 @@ const defaultSWRStore = {
 };
 
 const defaultSWRParams = {
-  options: {
-    enabled: true,
-    initialData: undefined,
-    // revalidateOnFocus: true,
-    // revalidateOnReconnect: true,
-  },
+  enabled: true,
+  initialData: undefined,
+  // revalidateOnFocus: true,
+  // revalidateOnReconnect: true,
 };
 
 export function useSWR<T>(): SWRStore<T> {
@@ -64,14 +62,8 @@ export function useSWR<T>(): SWRStore<T> {
   });
 
   function update(params: SWRParams<T>) {
-    params = {
-      ...defaultSWRParams,
-      ...params,
-      options: {
-        ...defaultSWRParams.options,
-        ...params.options,
-      },
-    };
+    params.options = { ...defaultSWRParams, ...params.options };
+
     fsm.send("revalidate", params);
   }
 
