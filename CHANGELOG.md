@@ -1,3 +1,11 @@
+## [0.0.11](https://github.com/cicerchie/svelte-swr/compare/v0.0.10...v0.0.11) (2021-08-22)
+
+
+### Bug Fixes
+
+* remove newClient from useSWR: client already exists there ([b957c17](https://github.com/cicerchie/svelte-swr/commit/b957c176be5e54314e7ebb8efd327e37b5da505f))
+* simplify defaultSWRParams ([b02eb7b](https://github.com/cicerchie/svelte-swr/commit/b02eb7bea85b606249f715879ef3a4492e49bff9))
+
 ## [0.0.10](https://github.com/cicerchie/svelte-swr/compare/v0.0.9...v0.0.10) (2021-08-22)
 
 
