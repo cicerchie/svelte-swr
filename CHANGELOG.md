@@ -1,3 +1,10 @@
+## [0.0.10](https://github.com/cicerchie/svelte-swr/compare/v0.0.9...v0.0.10) (2021-08-22)
+
+
+### Bug Fixes
+
+* update deps ([71631d1](https://github.com/cicerchie/svelte-swr/commit/71631d185bb921df6502375826ee26fd11e65aae))
+
 ## [0.0.9](https://github.com/cicerchie/svelte-swr/compare/v0.0.8...v0.0.9) (2021-08-22)
 
 
